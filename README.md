@@ -8,15 +8,17 @@
 ### Association
 - has_many :groups
 - has_many :messages
+- has_many :users_groups
 
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
-|groupname|string|null: false|
+|name|string|null: false|
 |users_id|integer|null: false|
 ### Association
 - has_many :users
 - has_many :messages
+- has_many :users_groups
 
 ## messagesテーブル
 |Column|Type|Options|
@@ -29,11 +31,11 @@
 - belongs_to :user
 - belongs_to :group
 
-## groups_messagesテーブル
+## users_groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
+|users_id|integer|null: false|
 |groups_id|integer|null: false|
-|messages_id|integer|null: false|
 ### Association
+- belongs_to :user
 - belongs_to :group
-- belongs_to :message
